@@ -1,0 +1,88 @@
+.wp-block-boldermail-image {
+	position: relative;
+
+	// This resets the intrinsic margin on the figure in non-floated, wide, and full-wide alignments.
+	margin-left: 0;
+	margin-right: 0;
+
+	&.is-transient img {
+		opacity: 0.3;
+	}
+
+	figcaption img {
+		display: inline;
+	}
+
+	// Shown while image is being uploaded
+	.components-spinner {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-top: -9px;
+		margin-left: -9px;
+	}
+}
+
+// This is necessary for the editor resize handles to accurately work on a non-floated, non-resized, small image.
+.wp-block-boldermail-image .components-resizable-box__container {
+	display: inline-block;
+
+	img {
+		display: block;
+		width: inherit;
+		height: inherit;
+	}
+}
+
+// Ensure the resize handles are visible when the image is focused.
+.wp-block-boldermail-image.is-focused .components-resizable-box__handle {
+	display: block;
+	z-index: 1;
+}
+
+.block-editor-block-list__block[data-type="boldermail/image"][data-align="center"] {
+	.wp-block-boldermail-image {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	&[data-resized="false"] .wp-block-boldermail-image > div {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+.block-editor-block-list__block[data-type="boldermail/image"] .block-editor-block-toolbar .block-editor-url-input__button-modal {
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: -1px 0;
+
+	@media (min-width: 600px) {
+		margin: -1px;
+	}
+}
+
+// Although the float markup is different in the editor compared to the frontend,
+// this CSS uses the same technique to allow floats in a wide images context.
+// That is, the block retains its centering and max-width, and a child inside
+// is floated instead of the block itself.
+[data-type="boldermail/image"][data-align="center"],
+[data-type="boldermail/image"][data-align="left"],
+[data-type="boldermail/image"][data-align="right"] {
+	figure {
+		margin: 0;
+	}
+}
+
+[data-type="boldermail/image"][data-align="wide"],
+[data-type="boldermail/image"][data-align="full"] {
+	figure img {
+		width: 100%;
+	}
+}
+
+// This is similar to above but for resized unfloated images only, where the markup is different.
+[data-type="boldermail/image"] figure.is-resized {
+	margin: 0;
+}

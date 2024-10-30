@@ -1,0 +1,5 @@
+{
+	"name": "boldermail/button",
+	"category": "boldermail-design",
+	"parent": ["boldermail/template-part"]
+}

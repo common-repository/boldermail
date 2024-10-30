@@ -1,0 +1,19 @@
+.templateContainer {
+	outline: 1px dashed #bbb !important;
+}
+
+#templatePreheader { /* stylelint-disable-line selector-id-pattern */
+	outline: 1px dashed #bbb !important;
+}
+
+#templateHeader { /* stylelint-disable-line selector-id-pattern */
+	outline: 1px dashed #bbb !important;
+}
+
+#templateBody { /* stylelint-disable-line selector-id-pattern */
+	outline: 1px dashed #bbb !important;
+}
+
+#templateFooter { /* stylelint-disable-line selector-id-pattern */
+	outline: 1px dashed #bbb !important;
+}

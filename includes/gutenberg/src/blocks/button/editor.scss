@@ -1,0 +1,16 @@
+.wp-block-boldermail-button {
+	// Make button container behave like a button.
+	.bmButtonContent {
+		cursor: pointer;
+	}
+
+	// The RichText component does not accept inline elements as its parent node.
+	// So we can't use `a` or `span` in our button, and must use `div` instead.
+	// @see https://github.com/WordPress/gutenberg/tree/master/packages/block-editor/src/components/rich-text#value-string
+	// To match how the button will look in the emails (link in button is inlined),
+	// we add this style to make the `div` tag in the RichText component display inlined.
+	.bmButton {
+		cursor: text;
+		display: inline;
+	}
+}

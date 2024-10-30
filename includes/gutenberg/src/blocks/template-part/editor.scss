@@ -1,0 +1,11 @@
+.editor-styles-wrapper .wp-block[data-type="boldermail/template-part"] {
+	max-width: 100%;
+}
+
+$template_border: 1px dashed #333;
+
+.wp-block[data-type="boldermail/template-part"]  {
+	.templateContainer  {
+		outline: $template_border;
+	}
+}

@@ -1,0 +1,44 @@
+.wp-block[data-type="boldermail/social-links"] {
+	// Eake the appender button the same size as the links.
+	.block-list-appender .block-editor-button-block-appender {
+		width: auto;
+	}
+	.is-icon-size-large .block-list-appender .block-editor-button-block-appender {
+		padding: 17px;
+	}
+	.is-text-only .block-list-appender .block-editor-button-block-appender {
+		width: 16px;
+		height: 16px;
+		padding: 0;
+	}
+
+	// Display the appender button as inline-block so it aligns with the social icons.
+	.block-list-appender {
+		display: inline-block;
+		vertical-align: top;
+		margin-top: 2px;
+	}
+	.is-icon-size-large .block-list-appender {
+		margin-top: 0;
+	}
+	.is-text-only .block-list-appender {
+		margin-top: -2px;
+	}
+
+	// Set the line-height to zero to avoid vertical spacing issues with the inline-block display.
+	.block-editor-block-list__layout {
+		line-height: 0;
+	}
+
+	// Hide the mover and the sibling inserter.
+	.block-editor-block-list__insertion-point {
+		display: none;
+	}
+}
+
+// Hide appender in preview.
+.block-editor-block-preview__content {
+	.wp-block[data-type="boldermail/social-links"] .block-list-appender {
+		display: none;
+	}
+}

@@ -1,0 +1,11 @@
+{
+	"name": "boldermail/separator",
+	"category": "boldermail-design",
+	"example": {},
+	"parent": ["boldermail/template-part"],
+	"supports": {
+		"customClassName": false,
+		"html": false,
+		"reusable": true
+	}
+}

@@ -1,0 +1,15 @@
+{
+	"name": "boldermail/countdown",
+	"category": "boldermail-design",
+	"parent": ["boldermail/template-part"],
+	"attributes": {
+		"timestamp": {
+			"type": "integer"
+		}
+	},
+	"supports": {
+		"className": false,
+		"customClassName": false,
+		"html": false
+	}
+}

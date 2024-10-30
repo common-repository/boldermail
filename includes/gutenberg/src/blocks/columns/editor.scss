@@ -1,0 +1,14 @@
+// Clear on both sides to avoid issues with floating blocks.
+.wp-block[data-type="boldermail/columns"] {
+	clear: both;
+}
+// The editor styles set styles for the `ul` and `li` tags,
+// but they also overwrite the styles for the variations picker component.
+// We replicate the styles here and set them as important to ensure they display correctly.
+.block-editor-block-variation-picker__variations.block-editor-block-variation-picker__variations {
+	padding-left: 0px !important;
+	margin: 16px 0 !important;
+}
+.block-editor-block-variation-picker__variations.block-editor-block-variation-picker__variations > li {
+	margin: 4px 8px 4px 0 !important;
+}

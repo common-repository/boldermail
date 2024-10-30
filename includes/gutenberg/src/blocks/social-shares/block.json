@@ -1,0 +1,6 @@
+{
+	"name": "boldermail/social-shares",
+	"category": "boldermail-design",
+	"icon": "share-alt",
+	"parent": ["boldermail/template-part"]
+}

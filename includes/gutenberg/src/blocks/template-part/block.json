@@ -1,0 +1,6 @@
+{
+	"name": "boldermail/template-part",
+	"category": "boldermail-design",
+	"icon": "layout",
+	"parent": [ "boldermail/template" ]
+}

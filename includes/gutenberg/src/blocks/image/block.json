@@ -1,0 +1,5 @@
+{
+	"name": "boldermail/image",
+	"category": "boldermail-media",
+	"parent": ["boldermail/template-part"]
+}

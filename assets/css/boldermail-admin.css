@@ -1,0 +1,2564 @@
+/**
+ * Boldermail admin CSS.
+ *
+ * Table of Contents
+ * - Dashicons
+ * - Menus
+ * - Bulk Actions
+ * - Admin Lists
+ * - Blank State Posts
+ * - Submit Box
+ * - Classic Editor
+ * - Template Browser
+ *     - Fancybox
+ * - Tables
+ * - Core Meta Boxes
+ * - Boldermail Meta Boxes
+ * - Panel Tabs
+ * - Help Tips
+ * - Panel Options
+ * - Settings
+ * - Custom Fields
+ * - Third-party
+ *   - Fancybox
+ *   - Emoji Button
+ */
+
+.clearfix::after {
+	clear: both;
+	content: "";
+	display: table;
+}
+
+/* # Dashicons */
+/* ------------------------------------------------------------------ */
+
+.boldermail-button.dashicons-before::before {
+	font-size: 1em;
+	height: 2.15384615em;
+	line-height: 2.15384615;
+	margin-right: 7px;
+	vertical-align: top;
+	width: 1em;
+}
+
+.boldermail-button.delete-custom::before {
+	margin-right: 0;
+}
+
+/* # Menus */
+/* ------------------------------------------------------------------ */
+
+/* Display staging notice in admin menu to denote Site is staging. */
+#adminmenu .update-plugins.staging {
+	font-size: 9px;
+	line-height: 18px;
+	text-transform: uppercase;
+}
+
+/* Bulk Actions */
+/* ------------------------------------------------------------------ */
+
+/* Import subscribers form. */
+.boldermail-upload-form {
+	background: #fafafa;
+	border: 1px solid #ccd0d4;
+	max-width: 380px;
+	padding: 30px;
+}
+
+.boldermail-upload-form input[type="file"] {
+	margin: 0 0 3px 0;
+}
+
+.boldermail-upload-form input[disabled] {
+	cursor: not-allowed !important;
+	pointer-events: all !important;
+}
+
+/* # Admin Lists */
+/* ------------------------------------------------------------------ */
+
+.fixed .column-name,
+.fixed .column-last_name,
+.fixed .column-list {
+	width: 15%;
+}
+
+.fixed .column-status,
+.fixed .column-timestamp,
+.fixed .column-lists,
+.fixed .column-emails,
+.fixed .column-sent,
+.fixed .column-autoresponder,
+.fixed .column-type {
+	width: 10%;
+}
+
+.fixed .column-opens,
+.fixed .column-clicks {
+	width: 11%;
+}
+
+.fixed .column-recipients {
+	width: 13%;
+}
+
+.fixed .column-trigger {
+	width: 11%;
+}
+
+.post-type-bm_newsletter_ares .fixed .column-status {
+	width: 6%;
+}
+
+.post-type-bm_newsletter_ares .fixed .column-recipients {
+	width: 8%;
+}
+
+.fixed .column-all {
+	width: 5em;
+}
+
+.fixed .column-subscribed,
+.fixed .column-unconfirmed,
+.fixed .column-unsubscribed,
+.fixed .column-bounced,
+.fixed .column-complained {
+	width: 11.5%;
+}
+
+/* Boldermail_Lists::manage_columns */
+.fixed .column-autoresponders {
+	padding: 8px 0;
+	text-align: left;
+	width: 3em;
+}
+
+.fixed .column-autoresponders a {
+	padding: 0 5px;
+}
+
+.fixed .column-autoresponders .vers {
+	padding-left: 3px;
+}
+
+th .boldermail-grey-bubble {
+	height: 16px;
+	width: 16px;
+}
+
+th .boldermail-grey-bubble::before {
+	color: #444;
+	display: inline-block;
+	font: normal 20px/0.5 dashicons; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
+	-webkit-font-smoothing: antialiased;
+	left: -4px;
+	-moz-osx-font-smoothing: grayscale;
+	padding: 0;
+	position: relative;
+	speak: none;
+	text-decoration: none !important;
+	top: 4px;
+	vertical-align: top;
+}
+
+/* External links in row actions and publish actions. */
+#boldermail-submitdiv #misc-publishing-actions .button::after,
+table.wp-list-table tr.type-bm_newsletter_ares .row-actions a[target="_blank"]::after,
+table.wp-list-table tr.type-bm_newsletter .row-actions a[target="_blank"]::after {
+	-webkit-font-smoothing: antialiased;
+	margin-left: 3px;
+	-moz-osx-font-smoothing: grayscale;
+	speak: none;
+	vertical-align: top;
+}
+
+table.wp-list-table tr.type-bm_newsletter_ares .row-actions a[target="_blank"]::after,
+table.wp-list-table tr.type-bm_newsletter .row-actions a[target="_blank"]::after {
+	font: normal 13px/1.5 dashicons; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
+	height: 20px;
+}
+
+#boldermail-submitdiv #misc-publishing-actions a.button::after {
+	font: normal 13px/28px dashicons; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
+	height: 28px;
+}
+
+#boldermail-submitdiv #misc-publishing-actions #view-newsletter-report.button::after,
+table.wp-list-table tr.type-bm_newsletter .row-actions .report a[target="_blank"]::after,
+table.wp-list-table tr.type-bm_newsletter_ares .row-actions .report a[target="_blank"]::after {
+	content: "\f504";
+}
+
+@media screen and (max-width: 782px) {
+	#boldermail-submitdiv #misc-publishing-actions #view-newsletter-report.button::after {
+		font-size: 14px;
+		height: 38px;
+		line-height: 38px;
+	}
+}
+
+/* Remove up and down arrows from meta box. */
+#boldermail-submitdiv .postbox-header {
+	display: none;
+}
+
+/* @see Boldermail_Templates::render_column */
+.post-type-bm_template .wp-list-table .column-thumbnail {
+	text-align: center;
+	white-space: nowrap;
+	width: 162px;
+}
+
+.post-type-bm_template .wp-list-table td.column-thumbnail {
+	background: none;
+	border: 0;
+	margin: 0;
+}
+
+.post-type-bm_template .wp-list-table .column-thumbnail img {
+	border: 1px solid #eee;
+	box-sizing: border-box;
+	display: inline;
+	height: auto;
+	margin: 0;
+	max-height: 150px;
+	max-width: 150px;
+	vertical-align: middle;
+	width: auto;
+}
+
+@media only screen and (max-width: 782px) {
+	.post-type-bm_template .wp-list-table .column-thumbnail {
+		display: none;
+		padding-bottom: 0;
+	}
+
+	.post-type-bm_template .wp-list-table .column-thumbnail::before {
+		display: none !important;
+	}
+
+	.post-type-bm_template .wp-list-table .column-thumbnail img {
+		max-width: 100%;
+	}
+}
+
+/* @see Boldermail_Lists::bulk_actions */
+.edit-php.post-type-bm_list .tablenav .bulkactions,
+.edit-php.post-type-bm_subscriber .tablenav .bulkactions {
+	padding: 0;
+}
+
+/* @see Boldermail_Subscribers::render_column */
+.subscribed .bm-list-table-mark.percentage,
+.bm-list-table-mark.status.status-subscribed {
+	background-color: #46b450;
+}
+
+.unsubscribed .bm-list-table-mark.percentage,
+.bm-list-table-mark.status.status-unsubscribed {
+	background-color: #dc3232;
+}
+
+.unconfirmed .bm-list-table-mark.percentage,
+.bm-list-table-mark.status.status-unconfirmed {
+	background-color: #82878c;
+}
+
+.bounced .bm-list-table-mark.percentage,
+.bm-list-table-mark.status.status-bounced {
+	background-color: #23282d;
+}
+
+.complained .bm-list-table-mark.percentage,
+.bm-list-table-mark.status.status-complained {
+	background-color: #23282d;
+}
+
+.column-timestamp span[title] {
+	text-decoration: dotted underline;
+}
+
+/* @see Boldermail_Newsletters::render_column */
+.bm-list-table-mark {
+	background: #e5e5e5;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+	border-radius: 4px;
+	color: #fff;
+	cursor: inherit !important;
+	display: -webkit-inline-flex;
+	display: inline-flex;
+	font-size: 11px;
+	line-height: 2.5em;
+	margin: -0.25em 0;
+	max-width: 100%;
+	white-space: nowrap;
+}
+
+.bm-list-table-mark > span {
+	margin: 0 0.75em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.bm-list-table-mark.status.status.status-paused,
+.bm-list-table-mark.status.status-preparing,
+.bm-list-table-mark.status.status-sending {
+	background: #ffb900;
+}
+
+.bm-list-table-mark.status.status.status-enabled,
+.bm-list-table-mark.status.status.status-sent {
+	background: #46b450;
+}
+
+.bm-list-table-mark {
+	margin: 0 5px 0 0;
+}
+
+.recipients .bm-list-table-mark.percentage,
+.opens .bm-list-table-mark.percentage {
+	background: #46b450;
+}
+
+.clicks .bm-list-table-mark.percentage {
+	background-color: #007cba;
+}
+
+span.bm-loading {
+	background-image: url(../images/spinner.gif);  /* /wp-admin/images/spinner-2x.gif */
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	background-size: 16px 16px;
+	cursor: inherit !important;
+	display: -webkit-inline-flex;
+	display: inline-flex;
+	font-size: 13px;
+	height: 16px;
+	line-height: 1.5em;
+	margin: -0.25em 0;
+	white-space: nowrap;
+	width: 16px;
+}
+
+.form-field span.bm-loading {
+	display: none; /* Gets shown via JS. */
+	margin-left: 9px;
+}
+
+@media screen and (max-width: 782px) {
+	.bm-list-table-mark {
+		line-height: 1.625em;
+	}
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+	span.bm-loading {
+		background-image: url(../images/spinner@2x.gif);
+	}
+}
+
+td.column-email strong {
+	display: block;
+	font-size: 14px;
+	margin-bottom: 0.2em;
+}
+
+.column-email img {
+	float: left;
+	margin-right: 10px;
+	margin-top: 1px;
+}
+
+/* # Blank State Posts */
+/* ------------------------------------------------------------------ */
+
+/* From WooCommerce admin tables. */
+.post-type-bm_newsletter .boldermail-BlankState-message::before,
+.post-type-bm_newsletter_rss .boldermail-BlankState-message::before,
+.post-type-bm_newsletter_ares .boldermail-BlankState-message::before,
+.post-type-bm_list .boldermail-BlankState-message::before,
+.post-type-bm_autoresponder .boldermail-BlankState-message::before,
+.post-type-bm_subscriber .boldermail-BlankState-message::before,
+.post-type-bm_template .boldermail-BlankState-message::before {
+	font-family: dashicons; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
+	font-variant: normal;
+	font-weight: 400;
+	height: 100%;
+	left: 0;
+	line-height: 1;
+	margin: 0;
+	position: absolute;
+	speak: none;
+	text-align: center;
+	text-indent: 0;
+	text-transform: none;
+	top: 0;
+	width: 100%;
+}
+
+.post-type-bm_newsletter .boldermail-BlankState-message::before {
+	content: "\f466";
+}
+
+.post-type-bm_newsletter_rss .boldermail-BlankState-message::before {
+	content: "\f303";
+}
+
+.post-type-bm_list .boldermail-BlankState-message::before {
+	content: "\f175";
+}
+
+.post-type-bm_autoresponder .boldermail-BlankState-message::before {
+	content: "\f463";
+}
+
+.post-type-bm_subscriber .boldermail-BlankState-message::before {
+	content: "\f110";
+}
+
+.post-type-bm_template .boldermail-BlankState-message::before {
+	content: "\f499";
+}
+
+.boldermail-BlankState {
+	background: #fff;
+	border: 1px solid #ccd0d4;
+	padding: 5em 0 0;
+	text-align: center;
+}
+
+.boldermail-BlankState .boldermail-BlankState-message {
+	color: #aaa;
+	font-size: 1.2em;
+	line-height: 1.5em;
+	margin: 0 auto 1.5em;
+	max-width: 500px;
+}
+
+.boldermail-BlankState .boldermail-BlankState-message::before {
+	color: #ddd;
+	display: block;
+	font-size: 8em;
+	left: auto;
+	line-height: 1em;
+	margin: 0 0 0.1875em;
+	position: relative !important;
+	text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(255, 255, 255, 0.8);
+	top: auto;
+}
+
+.boldermail-BlankState .boldermail-BlankState-cta {
+	display: inline-block !important;
+	font-size: 1.2em;
+	height: auto;
+	margin: 0 0.25em;
+	padding: 0.75em 1.5em;
+}
+
+.post-type-bm_newsletter .boldermail-BlankState,
+.post-type-bm_newsletter_rss .boldermail-BlankState,
+.post-type-bm_bm_newsletter_ares .boldermail-BlankState,
+.post-type-bm_list .boldermail-BlankState,
+.post-type-bm_autoresponder .boldermail-BlankState,
+.post-type-bm_subscriber .boldermail-BlankState,
+.post-type-bm_template .boldermail-BlankState {
+	margin: auto;
+	text-align: center;
+}
+
+.post-type-bm_newsletter .boldermail-BlankState .boldermail-BlankState-message,
+.post-type-bm_newsletter_rss .boldermail-BlankState .boldermail-BlankState-message,
+.post-type-bm_bm_newsletter_ares .boldermail-BlankState .boldermail-BlankState-message,
+.post-type-bm_list .boldermail-BlankState .boldermail-BlankState-message,
+.post-type-bm_autoresponder .boldermail-BlankState .boldermail-BlankState-message,
+.post-type-bm_subscriber .boldermail-BlankState .boldermail-BlankState-message,
+.post-type-bm_template .boldermail-BlankState .boldermail-BlankState-message {
+	color: #444;
+	font-size: 1.5em;
+	margin: 0 auto 1em;
+}
+
+.post-type-bm_newsletter .boldermail-BlankState .boldermail-BlankState-message::before,
+.post-type-bm_newsletter_rss .boldermail-BlankState .boldermail-BlankState-message::before,
+.post-type-bm_bm_newsletter_ares .boldermail-BlankState .boldermail-BlankState-message::before,
+.post-type-bm_list .boldermail-BlankState .boldermail-BlankState-message::before,
+.post-type-bm_autoresponder .boldermail-BlankState .boldermail-BlankState-message::before,
+.post-type-bm_subscriber .boldermail-BlankState .boldermail-BlankState-message::before,
+.post-type-bm_template .boldermail-BlankState .boldermail-BlankState-message::before {
+	font-size: 120px;
+}
+
+.post-type-bm_newsletter .boldermail-BlankState .boldermail-BlankState-buttons,
+.post-type-bm_newsletter_rss .boldermail-BlankState .boldermail-BlankState-buttons,
+.post-type-bm_bm_newsletter_ares .boldermail-BlankState .boldermail-BlankState-buttons,
+.post-type-bm_list .boldermail-BlankState .boldermail-BlankState-buttons,
+.post-type-bm_autoresponder .boldermail-BlankState .boldermail-BlankState-buttons,
+.post-type-bm_subscriber .boldermail-BlankState .boldermail-BlankState-buttons,
+.post-type-bm_template .boldermail-BlankState .boldermail-BlankState-buttons {
+	margin-bottom: 4em;
+}
+
+/* # Submit Box */
+/* ------------------------------------------------------------------ */
+
+/* Remove default meta box styling. */
+#boldermail-submitdiv.postbox {
+	background: inherit;
+	border: 0;
+	box-shadow: none;
+	margin-bottom: 0;
+}
+
+/* Hide title and sortable button. */
+#boldermail-submitdiv .handlediv,
+#boldermail-submitdiv .hndle,
+#boldermail-submitdiv h2 {
+	display: none;
+}
+
+#boldermail-submitdiv .inside {
+	margin: 0;
+	padding: 0;
+}
+
+#boldermail-submitdiv #misc-publishing-actions {
+	padding: 0;
+}
+
+/* Add top margin to the submit box if placed immediately after the title box. */
+#titlediv ~ #edit_form_after_title-sortables { /* stylelint-disable-line selector-id-pattern */
+	margin-top: 21px;
+}
+
+#boldermail-submitdiv .submitbox,
+#boldermail-submitdiv #major-publishing-actions,
+#boldermail-submitdiv #misc-publishing-actions {
+	font-size: 0;   /* Hide inline-block spacing. */
+}
+
+#boldermail-submitdiv #major-publishing-actions {
+	background: inherit;
+	border: 0;
+	display: inline-block;
+	padding: 0;
+}
+
+#boldermail-submitdiv #delete-action,
+#boldermail-submitdiv #publishing-action,
+#boldermail-submitdiv #misc-publishing-actions,
+#boldermail-submitdiv #publishing-action .spinner {
+	display: inline-block;
+	float: none;
+	line-height: 28px;
+}
+
+#boldermail-submitdiv #delete-action,
+#boldermail-submitdiv #publishing-action,
+#boldermail-submitdiv #misc-publishing-actions .button {
+	margin-bottom: 4px;
+	margin-right: 4px;
+}
+
+#boldermail-submitdiv #publishing-action .spinner {
+	margin: 0 10px 0;
+}
+
+body.post-new-php #boldermail-submitdiv #delete-action {
+	display: none;
+}
+
+#boldermail-submitdiv #delete-action .submitdelete {
+	border-color: #a00;
+	color: #a00;
+}
+
+#boldermail-submitdiv #delete-action .submitdelete:hover {
+	border-color: #dc3232;
+	border-style: solid;
+	border-width: 1px;
+	color: #dc3232;
+}
+
+/* # Classic Editor */
+/* ------------------------------------------------------------------ */
+
+.mce-item-table,
+.mce-item-table td,
+.mce-item-table th,
+.mce-item-table caption {
+	border: 0 !important;
+}
+
+.wp-media-buttons .select-template span.wp-media-buttons-icon.boldermail-editor-buttons-icon {
+	background: none;
+}
+
+@media print, (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
+	.wp-media-buttons .select-template span.wp-media-buttons-icon.boldermail-editor-buttons-icon {
+		background: none;
+	}
+}
+
+.boldermail-editor-wrap .wp-media-buttons {
+	font-size: 0; /* So the inline-block buttons do not have extra whitespace. */
+}
+
+.boldermail-media-button span.boldermail-editor-buttons-icon {
+	display: inline-block;
+	height: 20px;
+	line-height: 1;
+	margin: 0 2px;
+	vertical-align: middle;
+	width: 20px;
+}
+
+.boldermail-media-button span.boldermail-editor-buttons-icon::before {
+	font: normal 18px/1 dashicons; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	speak: none;
+}
+
+.boldermail-editor-wrap textarea {
+	font-family: Consolas, Monaco, monospace;
+}
+
+.boldermail-editor-wrap .wp-editor-container::after {
+	clear: both;
+	content: "";
+	display: table;
+}
+
+/* Editor inside the newsletter panels. */
+.postbox .newsletter-data .boldermail-editor-wrap iframe {
+	min-height: 640px;
+}
+
+.postbox .newsletter-data .boldermail-editor-wrap {
+	padding: 12px;
+}
+
+/* Send test email, Select template... */
+.boldermail-editor-meta-box {
+	background: #fff;
+	border: 1px solid #ddd;
+	margin-top: 12px;
+	min-width: 231px;
+}
+
+/* Close button wrapper for `.boldermail-editor-meta-box`. */
+.postbox .boldermail-handlediv {
+	background: none;
+	border: 0;
+	cursor: pointer;
+	display: block;
+	float: right;
+	height: 36px;
+	margin: 0;
+	padding: 0;
+	width: 36px;
+}
+
+.postbox .boldermail-handlediv:focus {
+	color: #23282d;
+}
+
+/* Close button for `.boldermail-editor-meta-box`. */
+.boldermail-handlediv .boldermail-close-indicator {
+	color: #72777c;
+}
+
+.postbox .boldermail-handlediv .boldermail-close-indicator::before {
+	border-radius: 50%;
+	content: "\f158";
+	display: inline-block;
+	font: normal 20px/1 dashicons; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
+	-webkit-font-smoothing: antialiased;
+	margin-top: 4px;
+	-moz-osx-font-smoothing: grayscale;
+	speak: none;
+	text-decoration: none !important;
+	text-indent: -1px;
+	width: 20px;
+}
+
+.js .postbox .boldermail-handlediv:focus {
+	box-shadow: none;
+	outline: none;
+}
+
+.js .postbox .boldermail-handlediv:focus .boldermail-close-indicator::before {
+	box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, 0.8);
+}
+
+/* Heading. */
+.boldermail-editor-meta-box .boldermail-hndle {
+	border-bottom: 1px solid #ddd;
+	font-size: 14px;
+	line-height: 1.4;
+	margin: 0;
+	padding: 8px 12px;
+}
+
+/* Content. */
+.boldermail-editor-meta-box-inside {
+	background: #f9f9f9;
+	padding: 7px 12px;
+}
+
+.boldermail-editor-meta-box .boldermail-options-panel {
+	float: none !important;
+	width: 100% !important;
+}
+
+.boldermail-editor-meta-box .boldermail-options-panel .notice {
+	margin: 9px 0;
+}
+
+.boldermail-editor-meta-box .boldermail-options-panel .form-field {
+	padding: 5px 0 5px 150px !important;
+}
+
+.boldermail-editor-meta-box .boldermail-options-panel p {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.boldermail-editor-meta-box .spinner {
+	float: none;
+	margin-top: -2px;
+}
+
+/* # Template Browser */
+/* ------------------------------------------------------------------ */
+
+.template-browser .templates {
+	clear: both;
+}
+
+.template-browser .template {
+	border: 1px solid #ddd;
+	box-shadow: 0 1px 1px -1px rgba(0, 0, 0, 0.1);
+	box-sizing: border-box;
+	float: left;
+	margin: 2% 4% 2% 0;
+	position: relative;
+	width: 30.6%;
+}
+
+.template-browser .template:nth-child(3n) {
+	margin-right: 0;
+}
+
+@media only screen and (min-width: 1640px) {
+	.template-browser .template {
+		margin: 1.5% 3% 1.5% 0;
+		width: 22.7%;
+	}
+
+	.template-browser .template:nth-child(3n) {
+		margin-right: 3%;
+	}
+
+	.template-browser .template:nth-child(4n) {
+		margin-right: 0;
+	}
+}
+
+@media only screen and (max-width: 1120px) {
+	.template-browser .template {
+		margin-right: 0;
+		width: 47.5%;
+	}
+
+	.template-browser .template:nth-child(odd) {
+		margin-right: 5%;
+	}
+
+	.template-browser .template:nth-child(even) {
+		margin-right: 0;
+	}
+}
+
+@media only screen and (max-width: 480px) {
+	.template-browser .template {
+		margin-right: 0;
+		width: 100%;
+	}
+
+	.template-browser .template:nth-child(2n),
+	.template-browser .template:nth-child(3n) {
+		margin-right: 0;
+	}
+}
+
+.template-browser .template .template-screenshot {
+	-webkit-backface-visibility: hidden;
+	display: block;
+	overflow: hidden;
+	position: relative;
+	transition: opacity 0.1s ease-in-out;
+}
+
+.template-browser .template .template-screenshot::after {
+	content: "";
+	display: block;
+	padding-top: 100%;
+}
+
+.template-browser .template:hover .template-screenshot,
+.template-browser .template:focus .template-screenshot {
+	background: #fff;
+}
+
+.template-browser .template .template-screenshot img {
+	height: auto;
+	left: 0;
+	position: absolute;
+	top: 0;
+	transition: opacity 0.2s ease-in-out;
+	width: 100%;
+}
+
+.template-browser .template:hover .template-screenshot img,
+.template-browser .template:focus .template-screenshot img {
+	opacity: 0.4;
+}
+
+.template-id-container {
+	position: relative;
+}
+
+.template-browser .template .template-name {
+	background: #fff;
+	background: rgba(255, 255, 255, 0.65);
+	box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.1);
+	font-size: 15px;
+	font-weight: 600;
+	height: 18px;
+	margin: 0;
+	overflow: hidden;
+	padding: 15px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.template-browser .template .template-actions {
+	background: #23282d;
+	background: rgba(0, 0, 0, 0.7);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	height: auto;
+	opacity: 0;
+	text-align: center;
+	transition: opacity 0.1s ease-in-out;
+}
+
+.template-browser .template.active .template-actions {
+	background: rgba(49, 49, 49, 0.7);
+	border-left: none;
+	opacity: 1;
+}
+
+.template-browser .template.active .template-actions,
+.template-browser .template .template-actions {
+	left: 0;
+	padding: 10px 15px;
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.template-browser .template:hover .template-actions,
+.template-browser .template.focus .template-actions,
+.template-browser .template:focus .template-actions {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	opacity: 1;
+}
+
+@media screen and (max-width: 782px) {
+	.template-browser .template.active .template-actions,
+	.template-browser .template .template-actions {
+		padding-bottom: 8px;
+		padding-top: 8px;
+	}
+}
+
+@media only screen and (max-width: 780px) {
+	.template-browser .template .template-actions {
+		padding: 5px 10px 4px 10px;
+	}
+}
+
+.template-browser .template .template-actions .button {
+	float: none;
+	margin-left: 3px;
+}
+
+@media screen and (max-width: 782px) {
+	.template-browser .template .template-actions .button {
+		margin-bottom: 0;
+	}
+}
+
+.template-browser .template .template-actions .button-primary {
+	margin-right: 3px;
+}
+
+.template-browser .template.add-new-template {
+	border: none;
+	box-shadow: none;
+}
+
+.template-browser .template.add-new-template a {
+	display: block;
+	position: relative;
+	text-decoration: none;
+	z-index: 1;
+}
+
+.template-browser .template.add-new-template a:hover::after,
+.template-browser .template.add-new-template a:focus::after {
+	background: #0073aa;
+	border-color: transparent;
+	color: #fff;
+	content: "";
+}
+
+.template-browser .template.add-new-template span::after {
+	background: #e5e5e5;
+	background: rgba(153, 153, 153, 0.1);
+	border-radius: 50%;
+	color: rgb(153, 153, 153);
+	content: "\f132";
+	display: inline-block;
+	font: normal 74px/115px dashicons; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
+	-webkit-font-smoothing: antialiased;
+	height: 100px;
+	left: 50%;
+	margin-left: -50px;
+	padding: 0;
+	position: absolute;
+	text-align: center;
+	text-indent: -4px;
+	text-shadow: none;
+	top: 30%;
+	vertical-align: middle;
+	width: 100px;
+	z-index: 4;
+}
+
+.template-browser .template.add-new-template a:hover span::after,
+.template-browser .template.add-new-template a:focus span::after {
+	background: #fff;
+	color: #0073aa;
+}
+
+@media only screen and (max-width: 650px) {
+	.template-browser .template.add-new-template span::after {
+		font: normal 60px/90px dashicons; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
+		height: 80px;
+		left: 50%;
+		margin-left: -40px;
+		text-indent: 0;
+		top: 30%;
+		width: 80px;
+	}
+}
+
+.template-browser .template.add-new-template a::after {
+	background: rgba(0, 0, 0, 0);
+	border: 5px dashed rgba(0, 0, 0, 0.1);
+	bottom: 0;
+	box-sizing: border-box;
+	content: "";
+	display: block;
+	left: 0;
+	padding: 0;
+	position: absolute;
+	right: 0;
+	text-shadow: none;
+	top: 0;
+}
+
+.template-browser .template.add-new-template a:hover .template-screenshot,
+.template-browser .template.add-new-template a:focus .template-screenshot {
+	background: none;
+}
+
+.template-browser .template.add-new-template .template-name {
+	background: none;
+	box-shadow: none;
+	font-weight: 400;
+	margin-top: -18px;
+	padding-bottom: 48px;
+	padding-top: 0;
+	position: relative;
+	text-align: center;
+	top: 0;
+}
+
+.template-browser .template.add-new-template a:hover .template-name,
+.template-browser .template.add-new-template a:focus .template-name {
+	color: #fff;
+	z-index: 2;
+}
+
+/* # Tables */
+/* ------------------------------------------------------------------ */
+
+.bulk-subscriber-actions .boldermail-list-table {
+	display: block;
+	overflow-x: auto;
+	white-space: nowrap;
+}
+
+.boldermail-list-table.widefat td,
+.boldermail-list-table.widefat th {
+	padding: 8px 10px;
+}
+
+/* @see partials/html-boldermail-list-bulk-subscriber-actions.php */
+.bulk-subscriber-actions .boldermail-list-table {
+	margin: 5px 0 15px;
+}
+
+.boldermail-post-state .dashicons {
+	font-size: 14px;
+	line-height: 1.5em;
+}
+
+table.form-table .boldermail-integrations-wrapper {
+	padding: 0 15px 10px 0;
+}
+
+table.boldermail-integrations {
+	position: relative;
+}
+
+table.boldermail-integrations .icon {
+	font-size: 0;
+}
+
+table.boldermail-integrations tr:nth-child(odd) td {
+	background: #f9f9f9;
+}
+
+table.boldermail-integrations td.name {
+	font-weight: 700;
+}
+
+table.boldermail-integrations td.action {
+	text-align: right;
+}
+
+table.boldermail-integrations td,
+table.boldermail-integrations th {
+	display: table-cell !important;
+	padding: 15px 10px !important;
+}
+
+.boldermail-integration-error,
+.boldermail-integration-username {
+	font-size: 13px;
+	line-height: 30px;
+	margin-right: 1em;
+}
+
+.boldermail-integration-error {
+	color: #a00;
+}
+
+/* # Core Meta Boxes */
+/* ------------------------------------------------------------------ */
+
+/** Convert cursor for non-sortable meta boxes -- @see assets/js/boldermail-admin.js */
+.boldermail-postbox.not-sortable .hndle {
+	cursor: pointer;
+}
+
+.post-type-bm_newsletter.post-status-publish .edit-post-status,
+.post-type-bm_newsletter.post-status-publish .edit-timestamp {
+	display: none;
+}
+
+.post-type-bm_template #submitdiv #visibility,
+.post-type-bm_newsletter #submitdiv #visibility {
+	display: none;
+}
+
+.post-type-bm_newsletter #submitdiv #post-preview {
+	display: none;
+}
+
+.post-type-bm_list #submitdiv #minor-publishing-actions {
+	display: none;
+}
+
+.post-type-bm_list.post-php #submitdiv #misc-publishing-actions {
+	padding: 10px 0;
+}
+
+.post-type-bm_list.post-new-php #submitdiv #misc-publishing-actions {
+	padding: 0;
+}
+
+.post-type-bm_newsletter .metabox-holder .postbox-container .empty-container,
+.post-type-bm_newsletter_rss .metabox-holder .postbox-container .empty-container,
+.post-type-bm_newsletter_ares .metabox-holder .postbox-container .empty-container,
+.post-type-bm_template .metabox-holder .postbox-container .empty-container,
+.post-type-bm_list .metabox-holder .postbox-container .empty-container,
+.post-type-bm_subscriber .metabox-holder .postbox-container .empty-container,
+.post-type-bm_autoresponder .metabox-holder .postbox-container .empty-container {
+	border: 0;
+}
+
+.post-type-bm_list #submitdiv .misc-pub-post-status,
+.post-type-bm_list #submitdiv .misc-pub-visibility,
+.post-type-bm_list #submitdiv .misc-pub-curtime {
+	display: none;
+}
+
+.post-type-bm_newsletter_ares.post-status-publish #edit-slug-box,
+.post-type-bm_newsletter.post-status-publish #edit-slug-box,
+.post-type-bm_newsletter.post-status-preparing #edit-slug-box,
+.post-type-bm_newsletter.post-status-sending #edit-slug-box,
+.post-type-bm_newsletter.post-status-sent #edit-slug-box {
+	display: none;
+}
+
+/* # Boldermail Meta Boxes */
+/* ------------------------------------------------------------------ */
+
+#boldermail-newsletter .inside,
+#boldermail-list-settings .inside,
+#boldermail-subscriber-data .inside,
+#boldermail-autoresponder-settings .inside {
+	margin: 0;
+	padding: 0;
+}
+
+#boldermail-newsletter #to_panel #list_id { /* stylelint-disable-line selector-id-pattern */
+	width: 95%;
+}
+
+.boldermail-panel-wrap {
+	overflow: hidden;
+}
+
+#boldermail-template-html .inside {
+	margin: 0;
+	padding: 12px;
+}
+
+#boldermail-list-information .inside {
+	margin: 6px 0 4px 0;
+	padding: 0;
+}
+
+#boldermail-list-information .list-info-section {
+	padding: 6px 10px 8px;
+}
+
+#boldermail-list-information .list-info-percentage {
+	background: #f1f1f1;
+	border-radius: 3px;
+	color: #444;
+	font-size: 8px;
+	line-height: 2.3;
+	margin-left: 10px;
+	padding: 4px;
+	vertical-align: top;
+}
+
+#boldermail-list-information .list-info-section::before {
+	background-color: #82878c;
+	border-radius: 100%;
+	color: #fff;
+	display: inline-block;
+	font: normal 12px/20px dashicons; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
+	-webkit-font-smoothing: antialiased;
+	height: 20px;
+	margin-right: 9px;
+	-moz-osx-font-smoothing: grayscale;
+	speak: none;
+	text-align: center;
+	vertical-align: top;
+	width: 20px;
+}
+
+#boldermail-list-information .list-info-api .list-id {
+	border: 1px solid #ccd0d4;
+	border-radius: 3px;
+	font-size: 10px;
+	padding: 3px;
+}
+
+#boldermail-list-information .list-info-api::before {
+	background-color: #ffb900;
+	content: "\f112";
+}
+
+#boldermail-list-information .list-info-all::before {
+	background-color: #007cba;
+	content: "\f110";
+}
+
+#boldermail-list-information .list-info-subscribed::before {
+	background-color: #46b450;
+	content: "\f12a";
+}
+
+#boldermail-list-information .list-info-unsubscribed::before {
+	background-color: #dc3232;
+	content: "\f158";
+}
+
+#boldermail-list-information .list-info-unconfirmed::before {
+	content: "\f227";
+}
+
+#boldermail-list-information .list-info-bounced::before {
+	background-color: #23282d;
+	content: "\f534";
+}
+
+#boldermail-list-information .list-info-complained::before {
+	background-color: #23282d;
+	content: "\f534";
+}
+
+/* # Panel Tabs */
+/* ------------------------------------------------------------------ */
+
+.boldermail-panel-wrap ul.boldermail-tabs {
+	background-color: #fafafa;
+	border-right: 1px solid #eee;
+	box-sizing: border-box;
+	float: left;
+	line-height: 1em;
+	margin: 0;
+	position: relative;
+	width: 20%;
+}
+
+.boldermail-panel-wrap ul.boldermail-tabs::after {
+	background-color: #fafafa;
+	border-right: 1px solid #eee;
+	bottom: -9999em;
+	content: "";
+	display: block;
+	height: 9999em;
+	left: 0;
+	position: absolute;
+	width: 100%;
+}
+
+.boldermail-panel-wrap ul.boldermail-tabs li {
+	display: block;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+
+.boldermail-panel-wrap ul.boldermail-tabs li a {
+	border-bottom: 1px solid #eee;
+	box-shadow: none;
+	display: block;
+	line-height: 20px !important;
+	margin: 0;
+	padding: 10px;
+	text-decoration: none;
+}
+
+.boldermail-panel-wrap ul.boldermail-tabs li:last-of-type a {
+	border-bottom: 0;
+}
+
+.boldermail-panel-wrap ul.boldermail-tabs li a span {
+	margin-left: 0.618em;
+	margin-right: 0.618em;
+}
+
+.boldermail-panel-wrap ul.boldermail-tabs li a::before {
+	content: "\f465";
+	font-family: dashicons; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
+	-webkit-font-smoothing: antialiased;
+	font-variant: normal;
+	font-weight: normal;
+	line-height: 20px;
+	speak: none;
+	text-decoration: none;
+	text-transform: none;
+	vertical-align: middle;
+}
+
+.boldermail-panel-wrap ul.boldermail-tabs li.to_tab a::before {
+	content: "\f110";
+}
+
+.boldermail-panel-wrap ul.boldermail-tabs li.from_tab a::before {
+	content: "\f464";
+}
+
+.boldermail-panel-wrap ul.boldermail-tabs li.subject_tab a::before {
+	content: "\f473";
+}
+
+.boldermail-panel-wrap ul.boldermail-tabs li.design_tab a::before {
+	content: "\f538";
+}
+
+.boldermail-panel-wrap ul.boldermail-tabs li.feed_tab a::before {
+	content: "\f303";
+}
+
+.boldermail-panel-wrap ul.boldermail-tabs li.trigger_tab a::before {
+	content: "\f508";
+}
+
+.boldermail-panel-wrap ul.boldermail-tabs li.details_tab a::before {
+	content: "\f107";
+}
+
+.boldermail-panel-wrap ul.boldermail-tabs li.subscribe_tab a::before {
+	content: "\f502";
+}
+
+.boldermail-panel-wrap ul.boldermail-tabs li.unsubscribe_tab a::before {
+	content: "\f153";
+}
+
+.boldermail-panel-wrap ul.boldermail-tabs li.custom_fields_tab a::before {
+	content: "\f175";
+}
+
+.boldermail-panel-wrap ul.boldermail-tabs li.woocommerce_tab a::before {
+	content: "\f174";
+}
+
+.boldermail-panel-wrap ul.boldermail-tabs li.subscriber_data_tab a::before {
+	content: "\f110";
+}
+
+.boldermail-panel-wrap ul.boldermail-tabs li.autoresponder_list_tab a::before {
+	content: "\f110";
+}
+
+.boldermail-panel-wrap ul.boldermail-tabs li.autoresponder_type_tab a::before {
+	content: "\f111";
+}
+
+.boldermail-panel-wrap ul.boldermail-tabs li.active a {
+	background-color: #eee;
+	color: #555;
+	position: relative;
+}
+
+@media only screen and (max-width: 1280px) {
+	.boldermail-panel-wrap ul.boldermail-tabs {
+		width: 25%;
+	}
+}
+
+@media only screen and (max-width: 900px) {
+	.boldermail-panel-wrap ul.boldermail-tabs {
+		width: 10%;
+	}
+
+	.boldermail-panel-wrap ul.boldermail-tabs li a {
+		padding: 10px;
+		position: relative;
+		text-indent: -999px;
+	}
+
+	.boldermail-panel-wrap ul.boldermail-tabs li a::before {
+		bottom: 0;
+		height: 40px;
+		left: 0;
+		line-height: 40px;
+		position: absolute;
+		right: 0;
+		text-align: center;
+		text-indent: 0;
+		top: 0;
+		width: 100%;
+	}
+}
+
+/* # Help Tips */
+/* ------------------------------------------------------------------ */
+
+.boldermail-tips {
+	text-decoration: none;
+}
+
+img.boldermail-tips {
+	padding: 5px 0 0;
+}
+
+/* stylelint-disable selector-id-pattern */
+#tiptip_holder {
+	display: none;
+	left: 0;
+	position: absolute;
+	top: 0;
+
+	/*rtl:ignore*/
+	z-index: 8675309;
+}
+
+#tiptip_holder.tip_top {
+	padding-bottom: 5px;
+}
+
+#tiptip_holder.tip_top #tiptip_arrow_inner {
+	border-top-color: #333;
+	margin-left: -6px;
+	margin-top: -7px;
+}
+
+#tiptip_holder.tip_bottom {
+	padding-top: 5px;
+}
+
+#tiptip_holder.tip_bottom #tiptip_arrow_inner {
+	border-bottom-color: #333;
+	margin-left: -6px;
+	margin-top: -5px;
+}
+
+#tiptip_holder.tip_right {
+	padding-left: 5px;
+}
+
+#tiptip_holder.tip_right #tiptip_arrow_inner {
+	border-right-color: #333;
+	margin-left: -5px;
+	margin-top: -6px;
+}
+
+#tiptip_holder.tip_left {
+	padding-right: 5px;
+}
+
+#tiptip_holder.tip_left #tiptip_arrow_inner {
+	border-left-color: #333;
+	margin-left: -7px;
+	margin-top: -6px;
+}
+
+#tiptip_content,
+.chart-tooltip,
+.boldermail-error-tip {
+	background: #333;
+	border-radius: 3px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+	color: #fff;
+	font-size: 0.8em;
+	max-width: 150px;
+	padding: 0.618em 1em;
+	text-align: center;
+}
+
+#tiptip_content code,
+.chart-tooltip code,
+.boldermail-error-tip code {
+	background: #888;
+	padding: 1px;
+}
+
+#tiptip_arrow,
+#tiptip_arrow_inner {
+	border-color: transparent;
+	border-style: solid;
+	border-width: 6px;
+	height: 0;
+	position: absolute;
+	width: 0;
+}
+/* stylelint-enable selector-id-pattern */
+
+.boldermail-help-tip {
+	color: #666;
+	display: inline-block;
+	font-size: 1.1em;
+	font-style: normal;
+	height: 16px;
+	line-height: 16px;
+	position: relative;
+	vertical-align: middle;
+	width: 16px;
+}
+
+.boldermail-help-tip::after {
+	content: "\f223";
+	cursor: help;
+	font-family: dashicons; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
+	-webkit-font-smoothing: antialiased;
+	font-variant: normal;
+	font-weight: 400;
+	height: 100%;
+	left: 0;
+	line-height: 1;
+	margin: 0;
+	position: absolute;
+	speak: none;
+	text-align: center;
+	text-indent: 0;
+	text-transform: none;
+	top: 0;
+	width: 100%;
+}
+
+.boldermail-help-tip {
+	cursor: help;
+	font-size: 1.2em;
+}
+
+.postbox .boldermail-help-tip {
+	margin: 0 0 0 9px;
+}
+
+.button-primary .boldermail-help-tip {
+	color: #fff;
+}
+
+.wp-media-buttons .boldermail-help-tip {
+	font-size: 1.2em !important;
+	margin-left: 4px;
+}
+
+.boldermail-options-panel .form-field .boldermail-help-tip {
+	font-size: 1.4em;
+}
+
+.boldermail-inline-radios .boldermail-help-tip {
+	margin-left: 0;
+	margin-right: 9px;
+}
+
+/* # Panel Options */
+/* ------------------------------------------------------------------ */
+
+.boldermail-panel-wrap {
+	background: #fff;
+}
+
+.boldermail-panel-wrap .boldermail-options-panel {
+	float: left;
+	width: 80%;
+}
+
+.boldermail-panel-wrap .boldermail-options-panel .boldermail-radios {
+	display: block;
+	float: left;
+	margin: 0;
+}
+
+.boldermail-panel-wrap .boldermail-options-panel .boldermail-radios li {
+	display: block;
+	padding: 0 0 10px;
+}
+
+.boldermail-panel-wrap .boldermail-options-panel .boldermail-radios li label {
+	margin: 0;
+}
+
+.boldermail-panel-wrap .boldermail-options-panel .boldermail-radios li input {
+	margin-right: 4px;
+}
+
+.boldermail-panel-wrap .boldermail-options-panel ul.boldermail-inline-radios,
+.boldermail-panel-wrap .boldermail-options-panel ul.boldermail-inline-checkboxes {
+	display: block;
+	width: auto;
+}
+
+.boldermail-panel-wrap .boldermail-options-panel ul.boldermail-inline-radios li,
+.boldermail-panel-wrap .boldermail-options-panel ul.boldermail-inline-checkboxes li {
+	display: inline;
+}
+
+.boldermail-panel-wrap .boldermail-options-panel ul.boldermail-inline-radios li input,
+.boldermail-panel-wrap .boldermail-options-panel ul.boldermail-inline-checkboxes li input {
+	vertical-align: text-bottom;
+	width: 1rem;
+}
+
+.boldermail-panel-wrap .boldermail-options-panel .boldermail-inline-radios label,
+.boldermail-panel-wrap .boldermail-options-panel .boldermail-inline-checkboxes label {
+	display: inline;
+	float: none;
+	font-size: 13px;
+	margin: 0 6px 0 2px;
+	padding: 0;
+	width: auto;
+}
+
+.boldermail-options-panel {
+	color: #555;
+	padding: 9px;
+}
+
+.boldermail-options-panel .notice {
+	margin: 9px 12px;
+}
+
+.boldermail-options-panel .notice p {
+	margin: 0.5em 0;
+	padding: 2px;
+}
+
+.boldermail-options-panel {
+	padding: 0;
+}
+
+.boldermail-options-panel p,
+.boldermail-options-panel h3,
+.boldermail-options-panel fieldset,
+.boldermail-options-panel table {
+	font-size: 12px;
+	line-height: 24px;
+	margin: 0 0 9px;
+	padding: 5px 12px;
+}
+
+.boldermail-options-panel .avatar {
+	display: block;
+}
+
+.boldermail-options-panel .form-field .select2 {
+	line-height: 1.5;
+}
+
+.boldermail-options-panel .form-field .select2-container .select2-selection--multiple {
+	min-height: 30px;
+}
+
+.select2-results__option,
+.select2-search--inline,
+.select2-selection__choice {
+	margin-bottom: 0;
+}
+
+.select2-container .select2-search--inline .select2-search__field {
+	line-height: inherit;
+	margin-top: 6px !important;
+	min-height: 0;
+}
+
+.boldermail-options-panel select.boldermail-select2.short ~ .select2 {
+	width: 50% !important;
+}
+
+.boldermail-options-panel table {
+	border-collapse: collapse;
+	clear: both;
+	width: 100%;
+}
+
+.boldermail-options-panel table label {
+	margin: 0;
+	width: 100%;
+}
+
+.boldermail-options-panel table input[type="text"],
+.boldermail-options-panel table input[type="email"],
+.boldermail-options-panel table input[type="number"],
+.boldermail-options-panel table input[type="password"] {
+	float: none;
+	width: 100%;
+}
+
+.boldermail-options-panel table .submit {
+	float: left;
+	padding: 0;
+}
+
+.boldermail-options-panel p::after,
+.boldermail-options-panel fieldset.form-field::after,
+.boldermail-options-panel div.form-field::after {
+	clear: both;
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+
+.boldermail-options-panel .checkbox {
+	float: left;
+	margin: 4px 0 !important;
+	vertical-align: middle;
+	width: auto;
+}
+
+.boldermail-options-panel {
+	box-sizing: border-box;
+	min-height: 175px;
+}
+
+.boldermail-options-panel .downloadable_files {
+	margin: 9px 0;
+	padding: 0 9px 0 162px;
+	position: relative;
+}
+
+.boldermail-options-panel .downloadable_files label {
+	left: 0;
+	line-height: 24px;
+	margin: 0 0 0 12px;
+	position: absolute;
+}
+
+.boldermail-options-panel p,
+.boldermail-options-panel h3,
+.boldermail-options-panel fieldset {
+	margin: 9px 0;
+}
+
+.boldermail-options-panel h3 {
+	font-size: 1em;
+}
+
+.boldermail-options-panel p.form-field,
+.boldermail-options-panel fieldset.form-field,
+.boldermail-options-panel div.form-field {
+	padding: 5px 20px 5px 162px !important; /* Padding for aligning labels left: 12px + 150px label width. */
+}
+
+.boldermail-options-panel .sale_price_dates_fields .short:first-of-type {
+	margin-bottom: 1em;
+}
+
+.boldermail-options-panel .sale_price_dates_fields .short:nth-of-type(2) {
+	clear: left;
+}
+
+.boldermail-options-panel label,
+.boldermail-options-panel legend {
+	float: left;
+	margin: 0 0 0 -150px;
+	padding: 0;
+	width: 150px;
+}
+
+.boldermail-options-panel label.inline {
+	float: none;
+	margin: 0;
+	width: auto;
+}
+
+.boldermail-options-panel label .req,
+.boldermail-options-panel legend .req {
+	color: #d9534f;
+	font-style: normal;
+	font-weight: 700;
+}
+
+.boldermail-options-panel .description {
+	clear: both;
+	color: #666;
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+
+.boldermail-options-panel .description code {
+	font-style: normal;
+}
+
+.boldermail-options-panel .description-block {
+	display: block;
+	margin-left: 0;
+}
+
+.boldermail-options-panel textarea,
+.boldermail-options-panel input,
+.boldermail-options-panel select {
+	margin: 0;
+}
+
+.boldermail-options-panel textarea {
+	float: left;
+	line-height: 1.5em;
+	vertical-align: top;
+}
+
+.boldermail-options-panel input[type="text"],
+.boldermail-options-panel input[type="email"],
+.boldermail-options-panel input[type="number"],
+.boldermail-options-panel input[type="password"],
+.boldermail-options-panel input[type="date"] {
+	float: left;
+	width: 50%;
+}
+
+.boldermail-options-panel input.button {
+	width: auto;
+}
+
+.boldermail-options-panel select {
+	float: left;
+}
+
+.boldermail-options-panel input[type="text"].short,
+.boldermail-options-panel input[type="email"].short,
+.boldermail-options-panel input[type="number"].short,
+.boldermail-options-panel input[type="password"].short,
+.boldermail-options-panel input[type="date"].short,
+.boldermail-options-panel .short {
+	width: 50%;
+}
+
+.boldermail-options-panel input[type="text"].fit,
+.boldermail-options-panel input[type="email"].fit,
+.boldermail-options-panel input[type="number"].fit,
+.boldermail-options-panel input[type="password"].fit,
+.boldermail-options-panel input[type="date"].fit,
+.boldermail-options-panel .fit {
+	width: max-content;
+}
+
+.boldermail-options-panel input[type="text"].sized,
+.boldermail-options-panel input[type="email"].sized,
+.boldermail-options-panel input[type="number"].sized,
+.boldermail-options-panel input[type="password"].sized,
+.boldermail-options-panel input[type="date"].sized,
+.boldermail-options-panel .sized {
+	margin-right: 6px;
+	width: auto !important;
+}
+
+.boldermail-options-panel input[type="number"].sized {
+	width: max-content !important;
+}
+
+.boldermail-options-panel .options_group {
+	border-bottom: 1px solid #eee;
+	border-top: 1px solid #fff;
+}
+
+.boldermail-options-panel .options_group:first-child {
+	border-top: 0;
+}
+
+.boldermail-options-panel .options_group:last-child {
+	border-bottom: 0;
+}
+
+.boldermail-options-panel .options_group fieldset {
+	font-size: 12px;
+	line-height: 24px;
+	margin: 9px 0;
+	padding: 5px 9px;
+}
+
+.boldermail-options-panel .options_group fieldset ul {
+	float: left;
+	margin: 0;
+	padding: 0;
+	width: 50%;
+}
+
+.boldermail-options-panel .options_group fieldset ul li {
+	margin: 0;
+	width: auto;
+}
+
+.boldermail-options-panel .options_group fieldset ul li input {
+	float: none;
+	margin-right: 4px;
+	width: auto;
+}
+
+.boldermail-options-panel .options_group fieldset ul.boldermail-radios label {
+	margin-left: 0;
+}
+
+.boldermail-options-panel .dimensions_field .wrap {
+	display: block;
+	width: 50%;
+}
+
+.boldermail-options-panel .dimensions_field .wrap input {
+	margin-right: 3.8%;
+	width: 30.75%;
+}
+
+.boldermail-options-panel .dimensions_field .wrap .last {
+	margin-right: 0;
+}
+
+.boldermail-options-panel.padded {
+	padding: 1em;
+}
+
+.boldermail-options-panel .select2-container {
+	float: left;
+}
+
+.boldermail-options-panel img.ui-datepicker-trigger {
+	float: left;
+	margin-left: 4px;
+	margin-right: 8px;
+	margin-top: 4px;
+}
+
+.boldermail-options-panel .wp-editor-wrap iframe {
+	min-height: 315px;
+}
+
+.boldermail-options-panel.boldermail-panel-fullwidth {
+	float: none;
+	width: 100%;
+}
+
+@media only screen and (max-width: 1280px) {
+	.boldermail-panel-wrap .boldermail-options-panel {
+		width: 75%;
+	}
+
+	.boldermail-options-panel .description {
+		clear: both;
+		display: block;
+		margin-left: 0;
+	}
+
+	.boldermail-options-panel .short,
+	.boldermail-options-panel input[type="text"].short,
+	.boldermail-options-panel input[type="email"].short,
+	.boldermail-options-panel input[type="number"].short,
+	.boldermail-options-panel input[type="password"].short,
+	.boldermail-options-panel .dimensions_field .wrap {
+		width: 80%;
+	}
+}
+
+@media only screen and (max-width: 900px) {
+	.boldermail-panel-wrap .boldermail-options-panel {
+		width: 90%;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.boldermail-options-panel label,
+	.boldermail-options-panel legend {
+		display: block;
+		float: none;
+		margin: 0;
+		width: auto;
+	}
+
+	.boldermail-options-panel fieldset.form-field,
+	.boldermail-options-panel p.form-field {
+		padding: 5px 20px !important;
+	}
+}
+
+/* # Settings */
+/* ------------------------------------------------------------------ */
+
+nav.boldermail-nav-tab-wrapper {
+	margin: 1.5em 0 1em;
+}
+
+.boldermail table.form-table {
+	margin: 0;
+	position: relative;
+	table-layout: fixed;
+}
+
+.boldermail table.form-table .wrap .notice,
+.boldermail table.form-table .wrap div.updated,
+.boldermail table.form-table .wrap div.error {
+	margin: 5px 0;
+}
+
+.boldermail table.form-table .forminp-radio ul {
+	margin: 0;
+}
+
+.boldermail table.form-table .forminp-radio ul li {
+	line-height: 1.4em;
+}
+
+.boldermail table.form-table input[type="text"],
+.boldermail table.form-table input[type="number"],
+.boldermail table.form-table input[type="email"] {
+	height: auto;
+}
+
+.boldermail table.form-table textarea.input-text {
+	display: block;
+	height: 100%;
+	min-width: 150px;
+}
+
+/* Give regular settings inputs a standard width and padding. */
+.boldermail table.form-table textarea,
+.boldermail table.form-table input[type="text"],
+.boldermail table.form-table input[type="email"],
+.boldermail table.form-table input[type="number"],
+.boldermail table.form-table input[type="password"],
+.boldermail table.form-table input[type="datetime"],
+.boldermail table.form-table input[type="datetime-local"],
+.boldermail table.form-table input[type="date"],
+.boldermail table.form-table input[type="time"],
+.boldermail table.form-table input[type="week"],
+.boldermail table.form-table input[type="url"],
+.boldermail table.form-table input[type="tel"],
+.boldermail table.form-table input.regular-input {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0 8px;
+	vertical-align: top;
+	width: 400px;
+}
+
+.boldermail table.form-table input[type="datetime-local"],
+.boldermail table.form-table input[type="date"],
+.boldermail table.form-table input[type="time"],
+.boldermail table.form-table input[type="week"],
+.boldermail table.form-table input[type="tel"] {
+	width: 200px;
+}
+
+.boldermail table.form-table select {
+	box-sizing: border-box;
+	line-height: 32px;
+	margin: 0;
+	vertical-align: top;
+	width: 400px;
+}
+
+.boldermail table.form-table input[size] {
+	width: auto !important;
+}
+
+/* Ignore nested inputs. */
+.boldermail table.form-table table select,
+.boldermail table.form-table table textarea,
+.boldermail table.form-table table input[type="text"],
+.boldermail table.form-table table input[type="email"],
+.boldermail table.form-table table input[type="number"],
+.boldermail table.form-table table input.regular-input {
+	width: auto;
+}
+
+.boldermail table.form-table textarea.wide-input {
+	width: 100%;
+}
+
+.boldermail table.form-table img.help_tip,
+.boldermail table.form-table .boldermail-help-tip {
+	cursor: help;
+	line-height: 1;
+	margin: -4px 0 0 5px;
+	padding: 0;
+	vertical-align: middle;
+}
+
+.boldermail table.form-table span.help_tip {
+	color: #007cba;
+	cursor: help;
+}
+
+.boldermail table.form-table th {
+	padding-right: 24px;
+	position: relative;
+}
+
+.boldermail table.form-table th label {
+	display: block;
+	position: relative;
+}
+
+.boldermail table.form-table th label img.help_tip,
+.boldermail table.form-table th label .boldermail-help-tip {
+	margin: -8px -24px 0 0;
+	position: absolute;
+	right: 0;
+	top: 50%;
+}
+
+.boldermail table.form-table th label + .boldermail-help-tip {
+	margin: 0 0 0 0;
+	position: absolute;
+	right: 0;
+	top: 20px;
+}
+
+.boldermail table.form-table .select2-container {
+	margin-bottom: 3px;
+	vertical-align: top;
+}
+
+.boldermail table.form-table .select2-container + span.description {
+	display: block;
+	margin-top: 8px;
+}
+
+.boldermail table.form-table table.widefat th {
+	padding-right: inherit;
+}
+
+.boldermail table.form-table .wp-list-table .boldermail-help-tip {
+	float: none;
+}
+
+.boldermail table.form-table fieldset {
+	margin-top: 4px;
+}
+
+.boldermail table.form-table fieldset img.help_tip,
+.boldermail table.form-table fieldset .boldermail-help-tip {
+	margin: -3px 0 0 5px;
+}
+
+.boldermail table.form-table fieldset p.description {
+	margin-bottom: 8px;
+}
+
+.boldermail table.form-table fieldset:first-child {
+	margin-top: 0;
+}
+
+@media only screen and (max-width: 782px) {
+	.boldermail table.form-table textarea,
+	.boldermail table.form-table input[type="text"],
+	.boldermail table.form-table input[type="email"],
+	.boldermail table.form-table input[type="number"],
+	.boldermail table.form-table input[type="password"],
+	.boldermail table.form-table input[type="datetime"],
+	.boldermail table.form-table input[type="datetime-local"],
+	.boldermail table.form-table input[type="date"],
+	.boldermail table.form-table input[type="time"],
+	.boldermail table.form-table input[type="week"],
+	.boldermail table.form-table input[type="url"],
+	.boldermail table.form-table input[type="tel"],
+	.boldermail table.form-table input.regular-input {
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 782px) {
+	.boldermail table.form-table select {
+		width: 100%;
+	}
+}
+
+.boldermail table.form-table th label img.help_tip,
+.boldermail table.form-table th label .boldermail-help-tip {
+	margin: -7px -24px 0 0;
+}
+
+@media only screen and (max-width: 782px) {
+	.boldermail table.form-table th label {
+		margin-left: 5px;
+		right: auto;
+	}
+}
+
+/* # Custom Fields */
+/* ------------------------------------------------------------------ */
+
+.boldermail-cf-field-header {
+	border-bottom: 1px solid #eee;
+	display: flex;
+	justify-content: space-between;
+}
+
+.boldermail-cf-toolbar a {
+	color: #999;
+}
+
+.boldermail-cf-toolbar.boldermail-cf-has-addons {
+	display: block;
+}
+
+.boldermail-cf-toolbar.boldermail-cf-has-addons a {
+	color: #0073aa;
+}
+
+.boldermail-cf-toolbar.boldermail-cf-has-addons a:hover {
+	color: #00a0d2;
+}
+
+.boldermail-cf-actions {
+	display: flex;
+	padding: 12px;
+}
+
+.boldermail-cf-add-field {
+	margin-right: auto !important;
+}
+
+.boldermail-cf-remove-addon {
+	margin-bottom: 0 !important;
+}
+
+.boldermail-cf-import-export-container {
+	padding: 0 12px;
+}
+
+.boldermail-cf-export-field,
+.boldermail-cf-import-field {
+	display: none;
+	float: none !important;
+	margin-bottom: 12px !important;
+	min-height: 3.5em;
+	width: 100% !important;
+}
+
+.boldermail-cf-close-all {
+	text-decoration: none;
+}
+
+a.boldermail-cf-close-all:active,
+a.boldermail-cf-close-all:focus {
+	outline: 0;
+}
+
+.boldermail-cf-expand-all {
+	text-decoration: none;
+}
+
+a.boldermail-cf-expand-all:active,
+a.boldermail-cf-expand-all:focus {
+	outline: 0;
+}
+
+.boldermail-cf-addons {
+	background: #f9f9f9;
+	padding: 0;
+}
+
+.boldermail-cf-addons.boldermail-cf-has-addons {
+	padding: 12px;
+}
+
+.boldermail-cf-addon {
+	background: #fff;
+	border: 1px solid #e5e5e5;
+	clear: both;
+	margin-top: 12px;
+}
+
+.boldermail-cf-addons .boldermail-cf-addon.open {
+	border-color: #aaa;
+}
+
+.boldermail-cf-addon-content {
+	clear: both;
+	width: 100%;
+}
+
+.boldermail-cf-addon.closed .boldermail-cf-addon-content {
+	display: none;
+}
+
+.boldermail-cf-addon:first-child {
+	margin-top: 0;
+}
+
+.boldermail-cf-addons .boldermail-cf-addon-header {
+	height: 30px;
+}
+
+.boldermail-cf-global-field .boldermail-cf-addon-header {
+	height: 24px;
+}
+
+.boldermail-cf-addon-header {
+	align-items: center;
+	border-bottom: 1px solid #e5e5e5;
+	display: flex;
+	justify-content: space-between;
+	padding: 12px;
+}
+
+.boldermail-cf-addon-header .boldermail-cf-col1 {
+	height: 30px;
+	line-height: 30px;
+}
+
+.boldermail-cf-addon-main-settings-1 .boldermail-cf-col1 {
+	grid-column: 1 / span 4;
+	padding: 20px 20px 5px 20px;
+}
+
+.boldermail-cf-addon-main-settings-2 .boldermail-cf-col1 {
+	grid-column: 1 / span 10;
+	padding: 20px 20px 5px 20px;
+}
+
+.boldermail-cf-addon-main-settings-2 .boldermail-cf-col1 label,
+.boldermail-cf-addon-main-settings-2 .boldermail-cf-col2 label,
+.boldermail-cf-addon-main-settings-1 .boldermail-cf-col1 label,
+.boldermail-cf-addon-main-settings-1 .boldermail-cf-col2-1 label,
+.boldermail-cf-addon-main-settings-1 .boldermail-cf-col2-2 label {
+	display: block;
+	float: none;
+	margin: 0;
+}
+
+.boldermail-cf-addon-main-settings-2 .boldermail-cf-col1 input,
+.boldermail-cf-addon-main-settings-2 .boldermail-cf-col2 input,
+.boldermail-cf-addon-main-settings-1 .boldermail-cf-col1 input,
+.boldermail-cf-addon-main-settings-1 .boldermail-cf-col2-1 input,
+.boldermail-cf-addon-main-settings-1 .boldermail-cf-col2-2 input {
+	display: block;
+	float: none;
+	width: 100% !important;
+}
+
+.boldermail-cf-addon-main-settings-2 .boldermail-cf-col1 select,
+.boldermail-cf-addon-main-settings-2 .boldermail-cf-col2 select,
+.boldermail-cf-addon-main-settings-1 .boldermail-cf-col1 select,
+.boldermail-cf-addon-main-settings-1 .boldermail-cf-col2-1 select,
+.boldermail-cf-addon-main-settings-1 .boldermail-cf-col2-2 select {
+	display: block;
+	float: none;
+	width: 100% !important;
+}
+
+.boldermail-cf-addon-name {
+	display: inline;
+	margin: 0 5px 0 10px !important;
+	padding: 0 !important;
+}
+
+.boldermail-cf-addon-type {
+	color: #ccc;
+	display: none;
+	font-size: 0.9em;
+	margin-right: 24px;
+}
+
+.boldermail-cf-addons .boldermail-cf-addon-code {
+	display: none;
+}
+
+.boldermail-cf-addon-header .boldermail-cf-addon-code {
+	margin-left: 6px;
+}
+
+@media screen and (max-width: 1120px) {
+	.boldermail-cf-addons .boldermail-cf-addon-header .boldermail-cf-addon-code {
+		display: none !important;
+	}
+
+	.boldermail-cf-addon-header .boldermail-cf-addon-code code {
+		font-size: 10px;
+	}
+}
+
+.boldermail-cf-addon-toggle {
+	border-radius: 50%;
+	cursor: pointer;
+	margin-left: 10px;
+	position: relative;
+	text-indent: -1px;
+	top: 4px;
+	width: 20px;
+}
+
+.boldermail-cf-addon.open .boldermail-cf-addon-toggle::before {
+	content: "\f142";
+	display: inline-block;
+	font: normal 20px/1 dashicons; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	speak: none;
+	text-decoration: none !important;
+}
+
+.boldermail-cf-addon.closed .boldermail-cf-addon-toggle::before {
+	content: "\f140";
+	display: inline-block;
+	font: normal 20px/1 dashicons; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	speak: none;
+	text-decoration: none !important;
+}
+
+.boldermail-cf-addon-type-select {
+	float: none;
+}
+
+.boldermail-cf-global-field {
+	padding: 12px;
+}
+
+.boldermail-cf-global-field p {
+	padding-left: 0;
+}
+
+@media (min-width: 1450px) {
+	#boldermail-list-settings .boldermail-cf-addon-main-settings-1,
+	#boldermail-list-settings .boldermail-cf-addon-main-settings-2 {
+		display: grid;
+		grid-gap: 15px;
+		grid-template-columns: 20px 30px 1fr 1.3fr 1fr 1fr 0.8fr 1fr 1fr 1fr 1fr 1fr 30px;
+	}
+
+	#boldermail-list-settings .boldermail-cf-addon-main-settings-1 .boldermail-cf-col1,
+	#boldermail-list-settings .boldermail-cf-addon-main-settings-1 .boldermail-cf-col2-1,
+	#boldermail-list-settings .boldermail-cf-addon-main-settings-1 .boldermail-cf-col2-2 {
+		padding-bottom: 20px;
+		padding-right: 0;
+	}
+
+	#boldermail-list-settings .boldermail-cf-addon-main-settings-2 .boldermail-cf-col1 {
+		padding-bottom: 20px;
+		padding-right: 0;
+	}
+
+	#boldermail-list-settings .boldermail-cf-addon-main-settings-2 {
+		padding-right: 0;
+	}
+
+	#boldermail-list-settings .boldermail-cf-addon-header .boldermail-cf-addon-type {
+		display: inline;
+	}
+}
+
+/* # Third-party */
+/* ------------------------------------------------------------------ */
+
+/* ## Fancybox */
+/* ---------------------------------- */
+
+/* Add spacing on top to accommodate admin bar. */
+@media only screen and (min-width: 601px) {
+	body .fancybox-container {
+		top: 32px;
+	}
+}
+
+/* Remove top spacing if using Block Editor on Fullscreen mode. */
+body.is-fullscreen-mode .fancybox-container {
+	top: 0;
+}
+
+body .fancybox-slide--html {
+	padding: 0 6px;
+}
+
+body .fancybox-content {
+	min-width: 768px;
+	padding: 0;
+}
+
+@media only screen and (max-width: 650px) {
+	body .fancybox-content {
+		min-width: 100%;
+	}
+}
+
+body .fancybox-content .boldermail-plain-text-preview {
+	background-color: rgb(255, 255, 255);
+	border: 0;
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.07);
+	color: rgb(50, 55, 60);
+	margin-bottom: -4px;
+	padding: 10px;
+	width: 100%;
+}
+
+body .fancybox-slide--html .fancybox-close-small {
+	background: #23282d;
+	color: #eee;
+}
+
+/* ## Emoji Button */
+/* ---------------------------------- */
+
+.emoji-picker-field .emoji-picker {
+	animation: none;
+	background-color: #fff;
+	border: 0;
+	border-radius: 0;
+	box-shadow: 0 0 0 transparent;
+	box-sizing: border-box;
+	color: #32373c;
+	display: flex;
+	float: left;
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	line-height: 2;
+	margin: 0;
+	min-height: 30px;
+	overflow: initial;
+	vertical-align: middle;
+	width: 50%;
+}
+
+.emoji-button {
+	background: #ddd;
+	border: 1px solid #7e8993;
+	border-bottom-right-radius: 3px;
+	border-top-right-radius: 3px;
+	cursor: pointer;
+	float: right;
+	font-size: 1rem;
+	margin: 0;
+	outline: none;
+}
+
+.emoji-contenteditable {
+	border-bottom-left-radius: 3px;
+	border-bottom-width: 1px;
+	border-color: #7e8993;
+	border-left-width: 1px;
+	border-right-width: 0;
+	border-style: solid;
+	border-top-left-radius: 3px;
+	border-top-width: 1px;
+	font-size: 14px;
+	text-align: left;
+	width: 100%;
+}
+
+.emoji-contenteditable:focus,
+.emoji-contenteditable:focus + .bm-emoji-button {
+	border-color: #007cba;
+	box-shadow: 0 0 0 1px #007cba;
+	outline: 2px solid transparent;
+}
+
+*[contenteditable="true"].emoji-contenteditable:empty::before,
+*[contenteditable].emoji-contenteditable:empty::before {
+	content: "\feff";
+}
+
+[contenteditable="true"].emoji-text,
+[contenteditable].emoji-text {
+	overflow: hidden;
+	/*width: 200px;*/
+	padding: 0 8px;
+	white-space: nowrap;
+}
+
+[contenteditable="true"].emoji-text br,
+[contenteditable].emoji-text br {
+	display: none;
+}
+
+[contenteditable="true"].emoji-text *,
+[contenteditable].emoji-text * {
+	display: inline;
+	white-space: nowrap;
+}
+
+img.bm-emoji {
+	height: 1rem;
+	margin: 0 0.05em 0 0.1em;
+	vertical-align: middle;
+	width: 1rem;
+}

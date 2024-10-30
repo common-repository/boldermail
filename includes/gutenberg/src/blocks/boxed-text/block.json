@@ -1,0 +1,10 @@
+{
+	"name": "boldermail/boxed-text",
+	"category": "boldermail-text",
+	"parent": ["boldermail/template-part"],
+	"supports": {
+		"customClassName": false,
+		"html": false,
+		"reusable": true
+	}
+}

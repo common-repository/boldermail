@@ -1,0 +1,16 @@
+.wp-block[data-type="boldermail/countdown"] {
+	.components-datetime {
+		background: #fff;
+		border: 1px solid #ccc;
+		border-radius: 2px;
+		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+		margin-right: 9px;
+		padding: 12px;
+	}
+
+	.components-datetime .components-button,
+	.components-datetime input[type="number"],
+	.components-datetime select {
+		margin-bottom: 0 !important; // Override editor button style.
+	}
+}

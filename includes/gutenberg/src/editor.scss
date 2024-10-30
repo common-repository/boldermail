@@ -1,0 +1,267 @@
+// Overrides `https://c0.wp.com/c/5.4.1/wp-includes/css/dist/edit-post/style.css`.
+.wp-block {
+	max-width: 600px;
+}
+
+.wp-block[data-type="core/block"],
+.wp-block[data-type^="boldermail"] {
+	&:hover,
+	&:focus {
+		outline: 1px solid var(--wp-admin-theme-color);
+		position: relative;
+		z-index: 20;  // the toolbar `.components-popover.block-editor-block-list__block-popover` has a z-index of 29
+	}
+
+	.block-editor-button-block-appender {
+		margin: 0; // for Gutenberg plugin
+		padding: 4px;
+	}
+}
+
+.wp-block[data-type="boldermail/template"],
+.wp-block[data-type="boldermail/template-part"] {
+	&:hover,
+	&:focus {
+		outline: 1px dashed var(--wp-admin-theme-color);
+	}
+}
+
+// Hide appender if template block was already added.
+// No way to do this via React yet.
+// @see https://github.com/WordPress/gutenberg/issues/7845
+.editor-styles-wrapper .wp-block[data-type="boldermail/template"] + .block-list-appender {
+	display: none !important;
+}
+
+// Make the template block full width.
+.editor-styles-wrapper .wp-block[data-type="boldermail/template"] {
+	max-width: calc(100% - 100px);
+}
+
+// Adjust the look of the reusable block.
+.editor-styles-wrapper .is-root-container > .wp-block[data-type="core/block"] {
+	max-width: calc(100% - 100px);
+}
+.editor-styles-wrapper .wp-block[data-type="core/block"] {
+	padding-top: 6px;
+
+	.wp-block[data-type="boldermail/template"] {
+		max-width: 100%;
+	}
+
+	+ .block-list-appender {
+		display: none !important;
+	}
+
+	.reusable-block-edit-panel {
+		border: 0;
+		margin: 0 0 1px;
+		top: -6px;
+	}
+
+	&.block-editor-block-list__block.is-reusable.is-selected::before {
+		border-color: #333;
+	}
+}
+
+// Hide the appender button from the reusable block because the appender does not insert where it should.
+// @see https://github.com/WordPress/gutenberg/issues/24403
+.wp-block[data-type="core/block"] .is-root-container > .block-list-appender {
+	display: none;
+}
+
+// Make the editor extend the maximum possible width horizontally.
+.block-editor-block-list__layout {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+// Add spacing at top of template.
+.block-editor-block-list__layout.is-root-container {
+	margin-top: 50px;
+}
+
+// Remove the vertical whitespace between blocks.
+.editor-styles-wrapper .block-editor-block-list__block {
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+// Add back vertical whitespace between blocks to toggle block inserter.
+.editor-styles-wrapper .templateContainer .block-editor-block-list__block {
+	margin-bottom: 6px;
+	margin-top: 6px;
+}
+
+// Remove the whitespace for the first block in an inner block group.
+.editor-styles-wrapper .templateContainer .block-editor-inner-blocks .block-editor-block-list__block:first-child {
+	margin-top: 0;
+}
+
+// Remove the whitespace for the second to last block in an inner block group (last block is appender).
+.editor-styles-wrapper .templateContainer .block-editor-inner-blocks .block-editor-block-list__block:nth-last-child(2) {
+	margin-bottom: 0;
+}
+
+// Remove whitespace from columns to avoid sizing confusion.
+.editor-styles-wrapper .templateContainer .bmColumnContent .block-editor-inner-blocks .block-editor-block-list__block {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+// Remove whitespace for horizontal blocks.
+.editor-styles-wrapper .templateContainer .wp-block-boldermail-social-links .block-editor-inner-blocks .block-editor-block-list__block,
+.editor-styles-wrapper .templateContainer .wp-block-boldermail-social-shares .block-editor-inner-blocks .block-editor-block-list__block {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+// Remove empty inserter for core paragraphs (legacy style).
+.block-editor-block-list__empty-block-inserter {
+	display: none;
+}
+
+// Remove thick left border from toolbar.
+.block-editor-block-toolbar {
+	box-shadow: none;
+}
+
+// Make the icon box have a left border since we remove it in the code above
+.block-editor-block-toolbar .components-toolbar {
+	border-left: 1px solid #b5bcc2;
+}
+
+// Make the layer that is displayed when the block is selected fit with the actual block.
+.block-editor-block-list__layout .block-editor-block-list__block::before {
+	bottom: -1px;
+	left: -1px;
+	right: -1px;
+	top: -1px;
+}
+
+// Remove the thick border on the left of the layer that is displayed when the block is selected.
+.block-editor-block-list__layout .block-editor-block-list__block.is-selected::before {
+	border-left-style: solid;
+	border-left-width: 1px;
+	box-shadow: none;
+}
+
+// Make the blocks toolbars align with the blocks.
+.components-popover.block-editor-block-list__block-popover .components-popover__content .block-editor-block-contextual-toolbar,
+.components-popover.block-editor-block-list__block-popover .components-popover__content .block-editor-block-list__breadcrumb {
+	margin-bottom: 0;
+	margin-left: -1px;
+}
+
+// Align the appender "+" button to the center with the containers moved in the previous lines.
+.components-popover:not([data-y-axis="middle"])[data-x-axis="right"] .components-popover__content {
+	margin-left: 0;
+}
+
+// Reduce spacing from appender inside preheader, header, body, and footer.
+.block-editor-block-list__block .block-list-appender {
+	margin: 1px 0 1px 0; // 1px to display border properly.
+	position: initial;
+}
+
+// Make appender button between blocks be centered vertically.
+.block-editor-block-list__insertion-point-inserter {
+	margin-bottom: -12px;
+}
+
+// Remove the "Switch to Draft" button.
+.post-type-bm_block_template .components-button.editor-post-switch-to-draft {
+	display: none !important;
+}
+
+// Remove the Document button on the sidebar panel for block templates.
+.post-type-bm_block_template .components-button.edit-post-sidebar__panel-tab[data-label="Document"],
+.post-type-bm_block_template .components-button.edit-post-sidebar__panel-tab[data-label="Block Template"] {
+	display: none !important;
+}
+
+// Center the label in the variation picker.
+// This style is included in .editor-styles-wrapper, but we dequeue this style.
+.components-placeholder .components-placeholder__label {
+	line-height: 1.8;
+}
+
+// Fix margins in panel headers.
+.components-panel__header h2 {
+	margin-bottom: 0;
+}
+
+// Center title.
+.editor-post-title__block .editor-post-title__input {
+	text-align: center;
+}
+
+// Fix styling in buttons.
+.edit-post-header .components-button.boldermail-block-editor-post-goback {
+	font-size: 13px;
+	margin: 2px;
+	padding: 0 5px;
+}
+
+@media (min-width: 600px) {
+	.edit-post-header .components-button.boldermail-block-editor-post-goback {
+		padding: 0 12px;
+	}
+}
+
+// Edit post header buttons in Block Editor.
+.boldermail-components-button.is-tertiary {
+	margin: 0 12px 0 0;
+}
+
+.boldermail-components-button.is-tertiary.is-busy,
+.boldermail-components-button.is-tertiary.is-busy:disabled,
+.boldermail-components-button.is-tertiary.is-busy[aria-disabled="true"] {
+	background-color: #fff;
+	background-image: linear-gradient(-45deg, #fff 28%, #eaeaea 28%, #eaeaea 72%, #fff 72%);
+	background-size: 100px 100%;
+	border-color: rgb(0, 117, 175);
+	box-shadow: inset 0 0 0 1px #6c7781, inset 0 0 0 2px #fff;
+	color: #191e23;
+	outline: 2px solid transparent;
+}
+
+// Trash button.
+.boldermail-components-button.editor-post-trash {
+	border-color: #a00;
+	color: #a00;
+}
+
+.boldermail-components-button.editor-post-trash:hover {
+	box-shadow: inset 0 0 0 1px #dc3232 !important;
+	color: #dc3232 !important;
+}
+
+// Keep the old style for the block appender (before WP 5.5).
+.post-type-bm_block_template .block-editor-button-block-appender,
+.post-type-bm_template .block-editor-button-block-appender {
+	align-items: center;
+	background: rgba(237, 239, 240, 0.8);
+	box-shadow: none;
+	color: #555d66;
+	display: flex;
+	flex-direction: column;
+	height: auto;
+	justify-content: center;
+	margin: 0;
+	outline: 1px dashed #8d96a0;
+	padding: 14px;
+	width: 100%;
+}
+
+// Fix the spacing in the border around the blocks when dragging other blocks.
+.block-editor-block-list__layout .block-editor-block-list__block.is-drop-target::before,
+.block-editor-block-list__layout .block-list-appender.is-drop-target::before {
+	top: -3px;
+	z-index: 20;
+}
+
+// Hide "mobile" from Preview button because it makes the template look weird.
+.block-editor-post-preview__button-resize.block-editor-post-preview__button-resize:last-child {
+	display: none;
+}

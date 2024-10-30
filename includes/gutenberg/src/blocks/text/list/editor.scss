@@ -1,0 +1,9 @@
+// Show bullet points in preview.
+.block-editor-block-preview__content {
+	.wp-block[data-type="boldermail/list"] ul {
+		list-style-type: disc;
+	}
+	.wp-block[data-type="boldermail/list"] ol {
+		list-style-type: decimal;
+	}
+}
